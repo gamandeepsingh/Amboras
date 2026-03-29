@@ -1,5 +1,5 @@
 'use client';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useDashboardStore } from '@/store/dashboard';
@@ -12,12 +12,18 @@ import ActivityFeed from '@/components/dashboard/ActivityFeed';
 export default function DashboardPage() {
   const { token, dateRange } = useDashboardStore();
   const router = useRouter();
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    if (!token) router.replace('/login');
-  }, [token, router]);
+    setMounted(true);
+  }, []);
 
-  if (!token) return null;
+  useEffect(() => {
+    if (!mounted) return;
+    if (!token) router.replace('/login');
+  }, [mounted, token, router]);
+
+  if (!mounted || !token) return null;
 
   return (
     <AnimatePresence mode="wait">
