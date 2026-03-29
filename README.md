@@ -66,6 +66,21 @@ flowchart LR
 	API --> FE
 ```
 
+## Future Design
+```mermaid
+flowchart TB
+  E[Event Producers] --> ING[Ingestion API]
+  ING --> Q[Queue / Stream]
+  Q --> CONS[Consumers]
+  CONS --> RAW[(Raw Events Table)]
+  CONS --> AGG[(Hourly/Daily Aggregates)]
+
+  UI[Dashboard Users] --> API[Analytics API]
+  API --> REDIS[(Redis)]
+  API --> AGG
+  API --> RAW
+```
+
 ---
 
 ## Architecture Decisions
