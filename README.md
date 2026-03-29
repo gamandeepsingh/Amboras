@@ -18,7 +18,7 @@ A real-time analytics dashboard for eCommerce store owners built with NestJS + N
 ### 1. Clone & configure
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/gamandeepsingh/Amboras
 cd amboras
 cp backend/.env.example backend/.env
 # Fill in your DATABASE_URL, JWT_SECRET in backend/.env
