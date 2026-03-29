@@ -1,0 +1,92 @@
+@import "tailwindcss";
+@import "react-day-picker/style.css";
+
+.rdp-root {
+  --rdp-accent-color: hsl(100 71% 64%);
+  --rdp-accent-background-color: hsl(100 71% 64% / 0.16);
+  --rdp-range_middle-background-color: hsl(100 71% 64% / 0.08);
+  --rdp-day_button-border-radius: 10px;
+  --rdp-day_button-height: 32px;
+  --rdp-day_button-width: 32px;
+}
+
+.rdp-day {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.rdp-day_selected,
+.rdp-day_range_start,
+.rdp-day_range_end {
+  color: #0a0a0a;
+  font-weight: 700;
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  /* Brand */
+  --color-neon:            hsl(100 71% 64%);
+  --color-neon-dim:        hsl(100 71% 64% / 0.15);
+  --color-neon-glow:       hsl(100 71% 64% / 0.08);
+
+  /* Surfaces */
+  --color-surface-0:       #000000;
+  --color-surface-1:       rgba(255,255,255,0.03);
+  --color-surface-2:       rgba(255,255,255,0.06);
+  --color-surface-3:       rgba(255,255,255,0.10);
+
+  /* Borders */
+  --color-border:          rgba(255,255,255,0.08);
+  --color-border-bright:   rgba(255,255,255,0.16);
+
+  /* Text */
+  --color-text-primary:    #ffffff;
+  --color-text-secondary:  rgba(255,255,255,0.60);
+  --color-text-muted:      rgba(255,255,255,0.35);
+
+  /* Semantic */
+  --color-danger:          hsl(0 72% 60%);
+  --color-warning:         hsl(38 92% 60%);
+  --color-info:            hsl(210 100% 65%);
+
+  /* Shadows */
+  --shadow-glow:           0 0 32px rgba(106,220,85,0.20);
+  --shadow-glow-sm:        0 0 16px rgba(106,220,85,0.12);
+}
+
+/* ── Base ─────────────────────────────────────── */
+:root { color-scheme: dark; }
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  background-color: #000000;
+  color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Custom scrollbar ─────────────────────────── */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.24); }
+
+/* ── Recharts dark overrides ──────────────────── */
+.recharts-cartesian-grid line { stroke: rgba(255,255,255,0.05) !important; }
+.recharts-text { fill: rgba(255,255,255,0.45) !important; font-size: 11px !important; }
+.recharts-tooltip-wrapper .recharts-default-tooltip {
+  background: rgba(8,8,8,0.92) !important;
+  border: 1px solid rgba(255,255,255,0.10) !important;
+  backdrop-filter: blur(12px);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.6) !important;
+}
+
+/* ── Pulse glow keyframe ──────────────────────── */
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.5; }
+}
